@@ -11,11 +11,42 @@
    * 3°) avec une arrow fonction et une expression conditionnelle
 */
 
+/*Fonction nommée*/
+function direBonjour() {
+    const firstName = document.getElementById('prenom').value;
+    if (firstName) {
+        alert(`Bonjour, ${firstName} !`);
+    } else {
+        alert("Bonjour, toi ! Tu ne veux pas me dire comment tu t'appelles ?");
+    }
+}
+
+document.getElementById('hello').addEventListener('click', direBonjour);
+
+
+/*Fonction anonyme*/
+document.getElementById('hello').addEventListener('click', () => {
+    const firstName = document.getElementById('prenom').value;
+    if (firstName) {
+        alert(`Bonjour, ${firstName} !`);
+    } else {
+        alert("Bonjour, toi ! Tu ne veux pas me dire comment tu t'appelles ?");
+    }
+});
+
+
+/*avec une arrow fonction et une expression conditionnelle*/
+const firstName = document.getElementById('prenom').value;
+document.getElementById('hello').addEventListener('click', ()=>{
+    const firstName = document.getElementById('prenom').value;
+    firstName? alert(`Bonjour, ${firstName} !`):alert("Bonjour, toi ! Tu ne veux pas me dire comment tu t'appelles ?");
+})
+
+
+
+
 
 // Autre écriture
-
-
-
 
 // Plus court : écriture ES6 avec expression conditionnelle
 

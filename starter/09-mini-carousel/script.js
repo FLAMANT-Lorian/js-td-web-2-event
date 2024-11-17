@@ -14,3 +14,25 @@ AIDE : voici les étapes :
 5. En fin de longueur du tableau, on redémarre au début de l'index
 */
 
+(function (){
+    const carousel = {
+        index: 0,
+        imgSources: ['./img/becode-seal.png', './img/bell.svg', './img/clock.svg', './img/compass.svg', './img/kiss.svg', './img/kiss-wink-heart.svg', './img/lemon.svg', './img/map.svg'],
+        imageElt: document.querySelector('img'),
+        btnElt: document.getElementById('next'),
+        init() {
+            this.imageElt.src = this.imgSources[this.index];
+            this.btnElt.addEventListener('click', ()=>{ // Faut utiliser une arrow function pour éviter le binding
+                this.imgChange();
+            })
+        },
+        imgChange() {
+            this.index++;
+            if (this.index === this.imgSources.length) {
+                this.index = 0;
+            }
+            this.imageElt.src = this.imgSources[this.index];
+        }
+    }
+    carousel.init();
+})()

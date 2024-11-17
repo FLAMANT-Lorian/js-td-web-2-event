@@ -11,6 +11,35 @@ EXERCICE 6 : Change couleur (3)
 	SOLUTION : il faut ajouter une méthode de Event dans la fonction qui va empêcher cet événement (la soumission du formulaire) de se produire : la méthode à utiliser est preventDefault()
 */
 
-
 // ÉTAPE 2 : version avec deux écouteurs
+
+(function () {
+    const changeColor = {
+        btnElt: document.getElementById('colorBtn'),
+        formElt: document.getElementById('colorForm'),
+        init() {
+            this.addEventListeners();
+        },
+        addEventListeners() {
+            this.btnElt.addEventListener('click', (evt) => {
+                this.colorClick(evt);
+            })
+            this.formElt.addEventListener('keydown', (evt) => {
+                this.colorKbd(evt);
+            })
+        },
+        colorClick(evt) {
+            document.body.style.backgroundColor = document.getElementById('colorChoice').value;
+            evt.preventDefault();
+
+        },
+        colorKbd(evt) {
+            if (evt.key === 'Enter') {
+                document.body.style.backgroundColor = document.getElementById('colorChoice').value;
+                evt.preventDefault();
+            }
+        }
+    }
+    changeColor.init();
+})()
 

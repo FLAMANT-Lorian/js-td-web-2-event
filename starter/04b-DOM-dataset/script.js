@@ -30,3 +30,24 @@ Les attributs individuels sont eux-mêmes des propriétés de l'objet dataset.
 Affiche dans la console la valeur de l'attribut data-index de l'iPhone XS Max
 et puis affiche "J'ai … iPhone(s) XS Max en stock"
 */
+
+(function (){
+    const changeStock = {
+        stock: parseInt(document.getElementById('xs-max').dataset.stock),
+        infos: "",
+        init(){
+            this.stockModifier();
+        },
+        stockModifier(){
+            if (this.stock > 1) {
+                this.infos = `J’ai ${this.stock} iPhones XS max en stock.`;
+            } else if (this.stock === 1) {
+                this.infos `J’ai ${this.stock} iPhone XS max en stock.`;
+            } else {
+                this.infos = `Je n’ai plus d'iPhone XS max en stock.`;
+            }
+            document.querySelector('h1').insertAdjacentHTML('afterend', `<p><b>${this.infos}</b></p>`);
+        }
+    }
+    changeStock.init();
+})()

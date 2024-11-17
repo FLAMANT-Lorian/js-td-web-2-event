@@ -40,12 +40,33 @@ MÉTHODE :
 1. déclarer une fonction direbonjour
 2. récupérer l'élément "bouton" qui doit réagir
 3. ajouter à ce bouton un gestionnaire d'événement avec la méthode  addEventListener() qui va écouter le clic (événement click) et qui, au clic sur le bouton,  déclenchera l'appel de la fonction direbonjour.
-*/
+*/function sayHello(){
+    console.log('YES !');
+}
 
-
-
+/*On cible un objet de type HTML*/
+    document.getElementById('hello').addEventListener('click', sayHello);
 
 // Autre écriture : avec une fonction anonyme
 
-
+document.getElementById('hello').addEventListener('click', () => console.log('YES !'));
 // Écriture ES6
+
+
+// Ceux qu'on utilise souvent : click, submit, focus, blur (quand on quitte le focus du formulaire, on valide le champ de formulaire), scroll, window
+// currentTarget : représente la cible de l'événement. Exemple : console.log(evt.currentTarget);
+
+console.log(this);
+document.getElementById('hello').addEventListener('click', function () {
+    console.log(this);
+});
+// Ca ne retourne pas la même chose si on retire le mot "function"
+document.getElementById('hello').addEventListener('click', () => {
+    console.log(this);
+});
+
+function direBonjour() {
+    console.log('YES !');
+    document.querySelector(':root').style.setProperty('--main-blue', '#5ff35a') // On utilise setProperty car dans les variables CSS, il y a des tirets et en JS les tirets sont des moins !
+}
+document.getElementById('hello').addEventListener('click', direBonjour);

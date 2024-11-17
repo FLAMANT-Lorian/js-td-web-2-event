@@ -11,8 +11,22 @@ Ta mission est toujours la même : au clic sur un des boutons, colorie la page d
 */
 
 
-
 // BONUS : encore mieux avec la boucle
 
-
+(function (){
+    const colorie = {
+        btnElmts:document.querySelectorAll('button[type="button"]'),
+        init() {
+            this.colorChange();
+        },
+        colorChange(){
+            for (const btnElmt of this.btnElmts) {
+                btnElmt.addEventListener('click', (evt) => {
+                    document.body.style.backgroundColor = evt.currentTarget.dataset.color;
+                })
+            }
+        }
+    }
+    colorie.init();
+})()
 

@@ -4,8 +4,10 @@ Au clic sur le bouton,
 	sous le bouton (dans la section de classe "display") ;
 - fais disparaître le bouton
 */
-
-
+document.getElementById('hello').addEventListener('click', (evt)=>{
+    document.querySelector('.display').insertAdjacentHTML('afterend', '<img alt="Bonjour" src="bonjour.jpg"/>');
+    evt.currentTarget.remove();
+});
 
 /*
 Chaque type d'événement est associé à un objet Event spécifique qui fournit des informations sur l'événement via ses propriétés.
@@ -19,6 +21,14 @@ Quand l'événement se déclenche, JavaScript crée un objet Event qui peut êtr
 - recopie le code de l'exercice 3 et ajoute une ligne dans la fonction direBonjour qui affiche dans la console la valeur de currentTarget ;
 - utilise cette information pour adapter le code qui fait disparaître le bouton
 */
+
+document.getElementById('hello').addEventListener('click', (evt)=>{
+    console.log(evt.currentTarget);
+    document.querySelector('.display').insertAdjacentHTML('afterend', '<img alt="Bonjour" src="bonjour.jpg"/>');
+    //evt.currentTarget.remove();
+    evt.hidden;
+});
+
 
 
 /* N.B. e.currentTarget représente, en français, "la cible du clic", c.-à-d. ici le bouton sur lequel on vient de cliquer, donc le bouton qui a déclenché la fonction.
